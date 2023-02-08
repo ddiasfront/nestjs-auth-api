@@ -1,7 +1,7 @@
 scalar date
 
 type User {
-  id: Int
+  id: String
   createdAt: date
   email: String
   name: String
@@ -17,12 +17,12 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  id: Int!
+  id: String
 }
 
 type Query {
   users: [User]!
-  user(id: Int!): User
+  user(id: String): User
 }
 
 type Mutation {

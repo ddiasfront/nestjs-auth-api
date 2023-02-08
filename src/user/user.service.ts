@@ -60,6 +60,7 @@ export class UserService {
         createdAt: true,
         password: false,
         role: false,
+        id: true,
       },
     });
   }
@@ -67,6 +68,7 @@ export class UserService {
   findAll() {
     return this.prisma.user.findMany({
       select: {
+        id: true,
         name: true,
         email: true,
         createdAt: true,
@@ -76,8 +78,20 @@ export class UserService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(id: string) {
+    return this.prisma.user.findUnique({
+      where: {
+        id: id,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        createdAt: true,
+        password: false,
+        role: false,
+      },
+    });
   }
 
   update(id: number, updateUserInput: UpdateUserInput) {
