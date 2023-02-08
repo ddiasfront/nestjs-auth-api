@@ -1,5 +1,6 @@
 // import { Injectable } from '@nestjs/common';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { EmailValidationService } from '../emailValidation/emailValidation.service';
 import { BcryptService, IBcryptService } from '../bcrypt/bcrypt.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserInput } from './dto/create-user.input';
@@ -11,9 +12,31 @@ export class UserService {
   constructor(
     private prisma: PrismaService,
     private readonly bcryptService: BcryptService,
+    private readonly emailValidationService: EmailValidationService,
   ) {}
 
   async create(createUserInput: CreateUserInput) {
+    const validation = await this.emailValidationService.validate(
+      createUserInput.email,
+    );
+
+    const isDeliverable = validation.data.deliverability;
+    const IsValidFormat = validation.data.is_valid_format.value;
+
+    if (isDeliverable !== 'DELIVERABLE') {
+      throw new HttpException(
+        'Email does not contain a valid email box',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+
+    if (!IsValidFormat) {
+      throw new HttpException(
+        'Email are not formatted correctly',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+
     const userNameAlreadyRegistered = await this.prisma.user.findMany({
       where: { name: createUserInput.name },
     });

@@ -8,6 +8,8 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { join } from 'path';
 import { UserModule } from './user/user.module';
 import { DateTimeResolver } from 'graphql-scalars';
+import { ConfigModule } from '@nestjs/config';
+import configuration from './configuration';
 
 @Module({
   imports: [
@@ -24,6 +26,9 @@ import { DateTimeResolver } from 'graphql-scalars';
     }),
     PrismaModule,
     UserModule,
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
