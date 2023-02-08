@@ -25,12 +25,12 @@ export class UpdateUserInput {
 }
 
 export class User {
-    id: number;
-    createdAt: DateTime;
-    email: string;
-    name: string;
-    role: Role;
-    password: string;
+    id?: Nullable<number>;
+    createdAt?: Nullable<DateTime>;
+    email?: Nullable<string>;
+    name?: Nullable<string>;
+    role?: Nullable<Role>;
+    password?: Nullable<string>;
 }
 
 export abstract class IQuery {

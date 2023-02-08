@@ -1,12 +1,12 @@
 scalar date
 
 type User {
-  id: Int!
-  createdAt: date!
-  email: String!
-  name: String!
-  role: Role!
-  password: String!
+  id: Int
+  createdAt: date
+  email: String
+  name: String
+  role: Role
+  password: String
 }
 
 input CreateUserInput {
