@@ -1,6 +1,6 @@
 // import { Injectable } from '@nestjs/common';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { EmailValidationService } from '../emailValidation/emailValidation.service';
+import { EmailValidationService } from '../email/emailValidation.service';
 import { BcryptService, IBcryptService } from '../bcrypt/bcrypt.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserInput } from './dto/create-user.input';

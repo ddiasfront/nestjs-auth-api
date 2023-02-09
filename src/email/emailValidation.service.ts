@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
-import { EmaiValidationOutput } from '../user/dto/email-validation-output';
+import { EmaiValidationOutput } from './dto/email-validation-output';
 import axios, { AxiosResponse } from 'axios';
 import { ConfigService } from '@nestjs/config';
 
