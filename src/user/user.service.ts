@@ -117,11 +117,59 @@ export class UserService {
     });
   }
 
+  findByNameEmail(name: string, email: string) {
+    return this.prisma.user.findMany({
+      where: {
+        name: name,
+        email: email,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        createdAt: true,
+        password: false,
+        role: false,
+      },
+    });
+  }
+
   update(id: number, updateUserInput: UpdateUserInput) {
     return `This action updates a #${id} user`;
   }
 
   remove(id: number) {
     return `This action removes a #${id} user`;
+  }
+
+  async loginUser(name: string, email: string, password: string) {
+    const userLogging = await this.prisma.user.findMany({
+      where: {
+        name: name,
+        email: email,
+      },
+    });
+
+    if (!userLogging[0]) {
+      throw new HttpException(
+        'User not found',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+
+    const comparison = await this.bcryptService.compare(
+      password,
+      userLogging[0].password,
+    );
+
+    if (comparison) {
+      //IMPLEMENT JWT TOKEN
+    } else
+      throw new HttpException(
+        'Passwords dont match',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    console.log(userLogging);
+    return 'This action logs the user into the system';
   }
 }
