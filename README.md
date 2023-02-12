@@ -4,9 +4,9 @@
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![typescript-shield][Typescript]][https://www.typescriptlang.org/]
-* [![prisma-shield][Prisma]][https://prisma.io/]
-* [![mysql-shield][MYSQL]][https://www.mysql.com/]
+* [![Typescript][typescript-shield]][https://www.typescriptlang.org/]
+* [![Prisma][prisma-shield]][https://prisma.io/]
+* [![MYSQL]][mysql-shield][https://www.mysql.com/]
 * [![graphql-shield][GraphQL]][https://graphql.org/]
 * [![nestjs-shield][NestJS]][https://nestjs.com/]
 * [![jwt-shield][JWT]][https://jwt.io/]
