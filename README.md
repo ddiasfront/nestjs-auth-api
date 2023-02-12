@@ -1,23 +1,44 @@
+## Simple authentication API
+This app feature a simple authentication proceess using modern technologies available in 2023. 
+
+#
+
+## The API contain the following functionalities:
+
+* Create user
+* Retrieve user by id
+* Retrieve user by name and email
+* Retrieve all users
+* Delete user
+* Sign in user
+
+#
+
+## Validations
+
+* It validates if the user exists before insert on the database
+* It validates also if an email is valid/exists via a third party api
+* It uses bcrypt for encription and hashing password
+
+#
+
 
 
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Typescript]typescript-shield][https://www.typescriptlang.org/]
-* [![Prisma][prisma-shield]][https://prisma.io/]
-* [![MYSQL]][mysql-shield][https://www.mysql.com/]
-* [![graphql-shield][GraphQL]][https://graphql.org/]
-* [![nestjs-shield][NestJS]][https://nestjs.com/]
-* [![jwt-shield][JWT]][https://jwt.io/]
-* [![jest-shield][Jest]][https://jestjs.io/]
-* [![apollo-shield][ApolloGraphQL]][https://www.apollographql.com/]
-* [![nodejs-shield][NodejS]][https://nodejs.org/]
+![Typescript][typescript-shield]
+![Prisma][prisma-shield]
+![MYSQL][mysql-shield]
+![GraphQL][graphql-shield]
+![NestJS][nestjs-shield]
+![JWT][jwt-shield]
+![Jest][jest-shield]
+![ApolloGraphQL][apollo-shield]
+![NodejS][nodejs-shield]
 
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+#
 
 ## Installation
 
@@ -59,7 +80,9 @@ $ npm run test:cov
 [mysql-shield]: https://img.shields.io/badge/mysql-20232A?style=for-the-badge&logo=mysql&logoColor=61DAFB
 [graphql-shield]: https://img.shields.io/badge/graphql-20232A?style=for-the-badge&logo=graphql&logoColor=61DAFB
 [nestjs-shield]: https://img.shields.io/badge/nestjs-20232A?style=for-the-badge&logo=nestjs&logoColor=61DAFB
-[jwt-shield]: https://img.shields.io/badge/jwt-20232A?style=for-the-badge&logo=jwt&logoColor=61DAFB
+[jwt-shield]: https://img.shields.io/badge/JWT-20232A?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=61DAFB
 [jest-shield]: https://img.shields.io/badge/jest-20232A?style=for-the-badge&logo=jest&logoColor=61DAFB
 [apollo-shield]: https://img.shields.io/badge/apollo-20232A?style=for-the-badge&logo=apollographql&logoColor=61DAFB
-[nodejs-shield]: https://img.shields.io/badge/nodejs-20232A?style=for-the-badge&logo=nodejs&logoColor=61DAFB
+[nodejs-shield]: https://img.shields.io/badge/nodejs-20232A?style=for-the-badge&logo=node.js&logoColor=61DAFB
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
