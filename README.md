@@ -1,5 +1,5 @@
 ## Simple authentication API
-This app feature a simple authentication proceess using modern technologies available in 2023. 
+This API feature a simple authentication proceess using modern technologies available in 2023. 
 
 #
 
