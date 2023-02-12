@@ -23,7 +23,7 @@ input UpdateUserInput {
 type Query {
   users: [User]!
   user(id: String): User
-  loginUser(name: String!, email: String!, password: String!): User
+  loginUser(name: String!, email: String!, password: String!): String
   userByNameAndEmail(name: String!, email: String!): User
 }
 

@@ -6,6 +6,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { Role, UserEntity } from './entities/user.entity';
+import { JWTService } from '../jwt/jwt.service';
 
 @Injectable()
 export class UserService {
@@ -13,6 +14,7 @@ export class UserService {
     private prisma: PrismaService,
     private readonly bcryptService: BcryptService,
     private readonly emailValidationService: EmailValidationService,
+    private readonly jwtService: JWTService,
   ) {}
 
   async create(createUserInput: CreateUserInput) {
@@ -164,12 +166,13 @@ export class UserService {
 
     if (comparison) {
       //IMPLEMENT JWT TOKEN
+      const authToken = await this.jwtService.sign(name, email);
+      console.log(authToken);
+      return authToken;
     } else
       throw new HttpException(
         'Passwords dont match',
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
-    console.log(userLogging);
-    return 'This action logs the user into the system';
   }
 }

@@ -4,6 +4,7 @@ import { UserResolver } from './user.resolver';
 import { BcryptService } from 'src/bcrypt/bcrypt.service';
 import { EmailValidationService } from '../email/emailValidation.service';
 import { ConfigService } from '@nestjs/config';
+import { JWTService } from '../jwt/jwt.service';
 
 @Module({
   providers: [
@@ -12,6 +13,7 @@ import { ConfigService } from '@nestjs/config';
     BcryptService,
     EmailValidationService,
     ConfigService,
+    JWTService,
   ],
 })
 export class UserModule {}
