@@ -18,7 +18,7 @@ This app feature a simple authentication proceess using modern technologies avai
 
 * It validates if the user exists before insert on the database
 * It validates also if an email is valid/exists via a third party api
-* It uses bcrypt for encription and hashing password
+* It uses bcrypt for encryption and hashing password
 
 #
 
