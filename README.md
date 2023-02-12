@@ -26,8 +26,6 @@ This app feature a simple authentication proceess using modern technologies avai
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 ![Typescript][typescript-shield]
 ![Prisma][prisma-shield]
 ![MYSQL][mysql-shield]
