@@ -3,6 +3,8 @@ This API feature a simple authentication proceess using modern technologies avai
 
 ![FlowChart](https://raw.githubusercontent.com/ddiasfront/nestjs-graphql-prisma-mysql/master/repoimages/flowchart.png)
 
+<a href="https://www.icloud.com/iclouddrive/0f4ypqpz3BnkZvNCy35lXj-4Q#flowchart">View full diagram</a>
+
 #
 
 ## The API contain the following functionalities:
