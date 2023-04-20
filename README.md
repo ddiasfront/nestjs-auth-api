@@ -1,6 +1,8 @@
 ## Simple authentication API
 This API feature a simple authentication proceess using modern technologies available in 2023. 
 
+![FlowChart](https://https://github.com/ddiasfront/nestjs-graphql-prisma-mysql/blob/master/repoimages/flowchart.png?raw=true)
+
 #
 
 ## The API contain the following functionalities:
