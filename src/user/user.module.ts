@@ -5,6 +5,7 @@ import { BcryptService } from 'src/bcrypt/bcrypt.service';
 import { EmailValidationService } from '../email/emailValidation.service';
 import { ConfigService } from '@nestjs/config';
 import { JWTService } from '../jwt/jwt.service';
+import { UsersController } from './users.controller';
 
 @Module({
   providers: [
@@ -15,5 +16,6 @@ import { JWTService } from '../jwt/jwt.service';
     ConfigService,
     JWTService,
   ],
+  controllers: [UsersController],
 })
 export class UserModule {}

@@ -7,6 +7,18 @@ import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { Role, UserEntity } from './entities/user.entity';
 import { JWTService } from '../jwt/jwt.service';
+import { validateOrReject } from 'class-validator';
+
+async function validateOrRejectInput(input) {
+  try {
+    await validateOrReject(input);
+  } catch (errors) {
+    console.log(
+      'Caught promise rejection (validation failed). Errors: ',
+      errors,
+    );
+  }
+}
 
 @Injectable()
 export class UserService {
@@ -18,9 +30,12 @@ export class UserService {
   ) {}
 
   async create(createUserInput: CreateUserInput) {
-    const validation = await this.emailValidationService.validate(
-      createUserInput.email,
-    );
+    const inputValidation = await validateOrRejectInput(createUserInput);
+    console.log(inputValidation);
+
+    const { name, password, email, role } = createUserInput;
+
+    const validation = await this.emailValidationService.validate(email);
 
     const isDeliverable = validation.data.deliverability;
     const IsValidFormat = validation.data.is_valid_format.value;
@@ -40,10 +55,10 @@ export class UserService {
     }
 
     const userNameAlreadyRegistered = await this.prisma.user.findMany({
-      where: { name: createUserInput.name },
+      where: { name: name },
     });
     const emailAlreadyRegistered = await this.prisma.user.findMany({
-      where: { email: createUserInput.email },
+      where: { email: email },
     });
 
     if (userNameAlreadyRegistered.length > 0) {
@@ -59,14 +74,12 @@ export class UserService {
       );
     }
 
-    const finalhashedpwd = await this.bcryptService.hash(
-      createUserInput.password,
-    );
+    const finalhashedpwd = await this.bcryptService.hash(password);
 
     const user = new UserEntity({
-      name: createUserInput.name,
+      name: name,
       password: finalhashedpwd,
-      email: createUserInput.email,
+      email: email,
       role: Role.user,
     });
 
@@ -175,4 +188,8 @@ export class UserService {
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
   }
+
+  // async report() {
+  //   const users = this.prisma.user.findMany();
+  // }
 }
