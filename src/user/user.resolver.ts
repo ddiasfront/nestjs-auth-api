@@ -10,10 +10,10 @@ export class UserResolver {
   @Query('loginUser')
   loginUser(
     @Args('name') name?: string,
-    @Args('email') email?: string,
     @Args('password') password?: string,
+    @Args('email') email?: string,
   ) {
-    return this.userService.loginUser(name, email, password);
+    return this.userService.loginUser(name, password, email);
   }
 
   @Mutation('createUser')

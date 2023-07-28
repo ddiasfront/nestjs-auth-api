@@ -157,11 +157,11 @@ export class UserService {
     return `This action removes a #${id} user`;
   }
 
-  async loginUser(name: string, email: string, password: string) {
+  async loginUser(name: string, password: string, email?: string) {
     const userLogging = await this.prisma.user.findMany({
       where: {
         name: name,
-        email: email,
+        // email: email,
       },
     });
 
@@ -179,7 +179,7 @@ export class UserService {
 
     if (comparison) {
       //IMPLEMENT JWT TOKEN
-      const authToken = await this.jwtService.sign(name, email);
+      const authToken = await this.jwtService.sign(name);
       console.log(authToken);
       return authToken;
     } else
